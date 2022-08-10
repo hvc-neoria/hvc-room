@@ -16,6 +16,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light flex-lg-column h-lg-100">
     <a href="/hvc-room/" class="navbar-brand m-0">
+    <img src="/hvc-room/neoria_icon_400.png" width="28">
     ひぶしの部屋
     </a>
     <button class="navbar-toggler" data-target="#g-nav" data-toggle="collapse" aria-controls="g-nav" aria-expanded="false" aria-label="Toggle navigation">
