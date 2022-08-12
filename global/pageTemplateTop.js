@@ -10,6 +10,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+  <!-- jqueryをbootstrapの前に読み込むことで、ページを開いた初回のみ発生する、ハンバーガーメニューを開けない問題を回避する -->
+  <!-- https://stackoverflow-com.translate.goog/questions/20606209/bootstrap-uncaught-typeerror-cannot-read-property-fn-of-undefined?_x_tr_sl=en&_x_tr_tl=ja&_x_tr_hl=ja&_x_tr_pto=sc -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
   <!-- Material Design Bootstrap ------------------------------ -->
   <!-- Font Awesome, Bootstrap core CSS, Material Design Bootstrap -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
