@@ -20,6 +20,11 @@
 </div>
 
 <style>
+    /* スマホにて、ダブルタップによるズームを抑止する */
+    html {
+        touch-action: manipulation;
+    }
+
     /* アドレスバーの後ろにタイムスタンプが表示されないよう、短めの幅にしている */
     .table-container {
         height: 51vh;
