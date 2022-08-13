@@ -37,20 +37,24 @@ const createRecordNumTh = _ => {
 }
 
 /**
- * タイムスタンプテーブルデータを返す
+ * タイムスタンプが記載されたテーブルデータを返す
  * @param {string} currentDatetime new Date()で出力される現在日時を渡す
- * @returns タイムスタンプテーブルデータ
+ * @returns タイムスタンプが記載されたテーブルデータ
  */
 const createTimestampTd = currentDatetime => {
     const timestampTd = document.createElement("td");
-    timestampTd.textContent = `${currentDatetime.getHours()}:${currentDatetime.getMinutes()}:${currentDatetime.getSeconds()}`;
+    // 先頭に0を付与した後、後方から2文字取得
+    const zeroPaddedH = `0${currentDatetime.getHours()}`.slice(-2);
+    const zeroPaddedM = `0${currentDatetime.getMinutes()}`.slice(-2);
+    const zeroPaddedS = `0${currentDatetime.getSeconds()}`.slice(-2);
+    timestampTd.textContent = `${zeroPaddedH}:${zeroPaddedM}:${zeroPaddedS}`;
     return timestampTd;
 }
 
 /**
  * 1つ前のタイムスタンプから現在のタイムスタンプまでの経過時間が記載されたテーブルデータを返す
  * @param {string} currentDatetime new Date()で出力される現在日時を渡す
- * @returns 経過時間テーブルデータ
+ * @returns 経過時間が記載されたテーブルデータ
  */
 const createElapsedTimeTd = currentDatetime => {
     const elapsedTimeTd = document.createElement("td");
@@ -64,12 +68,16 @@ const createElapsedTimeTd = currentDatetime => {
         elapsedTimeTd.textContent = `-`;
     } else {
         const diff = currentUnixTime - prevUnixTime;
-        const seconds = Math.floor(diff % 60);
-        const minutes = Math.floor(diff / 60 % 60);
-        const hours = Math.floor(diff / (60 * 60) % 60);
-        elapsedTimeTd.textContent = `${hours}h${minutes}m${seconds}s`;
+        const s = Math.floor(diff % 60);
+        const m = Math.floor(diff / 60 % 60);
+        const h = Math.floor(diff / (60 * 60) % 60);
+        // 先頭に0を付与した後、後方から2文字取得
+        const zeroPaddedS = `0${s}`.slice(-2);
+        const zeroPaddedM = `0${m}`.slice(-2);
+        const zeroPaddedH = `0${h}`.slice(-2);
+        elapsedTimeTd.textContent = `${zeroPaddedH}h${zeroPaddedM}m${zeroPaddedS}s`;
     }
-    
+
     prevUnixTime = currentUnixTime;
     return elapsedTimeTd;
 }
