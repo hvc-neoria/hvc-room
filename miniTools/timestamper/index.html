@@ -20,60 +20,17 @@
 </div>
 
 <style>
+    /* アドレスバーの後ろにタイムスタンプが表示されないよう、短めの幅にしている */
     .table-container {
         height: 51vh;
     }
 
+    /* PC */
     @media screen and (min-width: 576px) {
         .table-container {
             height: 75vh;
         }
     }
 </style>
-
-<script>
-    const button = document.getElementsByClassName("btn")[0];
-
-    let num = 1;
-    // 秒単位の経過時間
-    let prevTime = 0;
-
-    const onclick = _ => {
-        const tbody = document.getElementsByTagName("tbody")[0];
-        const tr = document.createElement("tr");
-        tbody.appendChild(tr);
-
-        const numElement = document.createElement("th");
-        numElement.scope = "row";
-        numElement.textContent = num++;
-        tr.appendChild(numElement);
-
-        const timestampTd = document.createElement("td");
-        const now = new Date();
-        timestampTd.textContent = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
-        tr.appendChild(timestampTd);
-
-        const timeTd = document.createElement("td");
-        // 秒単位の経過時間
-        const nowTime = Math.floor(now.getTime() / 1000)
-        if (prevTime === 0) {
-            timeTd.textContent = `-`;
-        } else {
-            const diff = nowTime - prevTime;
-            const seconds = Math.floor(diff % 60);
-            const minutes = Math.floor(diff / 60 % 60);
-            const hours = Math.floor(diff / (60 * 60) % 60);
-            timeTd.textContent = `${hours}h${minutes}m${seconds}s`;
-        }
-        tr.appendChild(timeTd);
-        prevTime = nowTime;
-
-        // スクロールバーの位置を最下部にする
-        const container = document.getElementsByClassName("table-container")[0];
-        container.scrollTo(0, container.scrollHeight);
-    }
-
-    button.onclick = onclick;
-</script>
-
+<script src="/hvc-room/miniTools/timestamper/code.js"></script>
 <script src="/hvc-room/global/pageTemplateBottom.js"></script>
