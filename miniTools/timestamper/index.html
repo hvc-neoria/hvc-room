@@ -5,7 +5,7 @@
 
 <h1>タイムスタンパー</h1>
 <button type="button" class="btn btn-primary btn-lg">タイムスタンプを追加</button>
-<div class="overflow-auto table-container" style="height:70vh">
+<div class="overflow-auto table-container">
     <table class="table table-sm">
         <thead class="thead-light sticky-top">
             <tr>
@@ -19,7 +19,17 @@
     </table>
 </div>
 
+<style>
+    .table-container {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 75);
+    }
+</style>
+
 <script>
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+
     const button = document.getElementsByClassName("btn")[0];
 
     let num = 1;
