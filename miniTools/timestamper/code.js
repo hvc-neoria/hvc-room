@@ -9,17 +9,25 @@ let prevUnixTime = initialPrevUnixTime;
  * クリック時のメソッド
  */
 const onclick = _ => {
+    // 表本体を取得する
     const tbody = document.getElementsByTagName("tbody")[0];
+    // 表本体に行を追加する
     const tr = document.createElement("tr");
     tbody.appendChild(tr);
 
+    // レコード番号を内包した表の見出しを行に追加する
     tr.appendChild(createRecordNumTh());
+
     const currentDatetime = new Date();
+    // タイムスタンプが記載された表のデータを行に追加する
     tr.appendChild(createTimestampTd(currentDatetime));
+    // 1つ前のタイムスタンプから現在のタイムスタンプまでの経過時間が記載された表のデータを行に追加する
     tr.appendChild(createElapsedTimeTd(currentDatetime));
 
+    // テキストボックスを内包した表のデータを行に追加する
     tr.appendChild(createTextboxTd());
 
+    // スクロールバーの位置を最下部にする
     moveScrollbarToBottom();
 }
 
@@ -27,9 +35,9 @@ const button = document.getElementsByClassName("btn")[0];
 button.onclick = onclick;
 
 /**
- * レコード番号テーブルヘッダーを返す
+ * レコード番号を内包した表の見出しを返す
  * 生成する度にインクリメントする
- * @returns レコード番号テーブルヘッダー
+ * @returns レコード番号を内包した表の見出し
  */
 const createRecordNumTh = _ => {
     const recordNumTh = document.createElement("th");
@@ -39,9 +47,9 @@ const createRecordNumTh = _ => {
 }
 
 /**
- * タイムスタンプが記載されたテーブルデータを返す
+ * タイムスタンプが記載された表のデータを返す
  * @param {string} currentDatetime new Date()で出力される現在日時を渡す
- * @returns タイムスタンプが記載されたテーブルデータ
+ * @returns タイムスタンプが記載された表のデータ
  */
 const createTimestampTd = currentDatetime => {
     const timestampTd = document.createElement("td");
@@ -54,9 +62,9 @@ const createTimestampTd = currentDatetime => {
 }
 
 /**
- * 1つ前のタイムスタンプから現在のタイムスタンプまでの経過時間が記載されたテーブルデータを返す
+ * 1つ前のタイムスタンプから現在のタイムスタンプまでの経過時間が記載された表のデータを返す
  * @param {string} currentDatetime new Date()で出力される現在日時を渡す
- * @returns 経過時間が記載されたテーブルデータ
+ * @returns 経過時間が記載された表のデータ
  */
 const createElapsedTimeTd = currentDatetime => {
     const elapsedTimeTd = document.createElement("td");
@@ -85,8 +93,8 @@ const createElapsedTimeTd = currentDatetime => {
 }
 
 /**
- * テキストボックスを包括したテーブルデータを生成する
- * @returns テキストボックスを包括したテーブルデータ
+ * テキストボックスを内包した表のデータを生成する
+ * @returns テキストボックスを内包した表のデータ
  */
 const createTextboxTd = _ => {
     const td = document.createElement("td");
