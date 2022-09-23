@@ -91,7 +91,8 @@ const createElapsedTimeTd = currentDatetime => {
 const createTextboxTd = _ => {
     const td = document.createElement("td");
     const textInput = document.createElement("input");
-    textInput.className = "form-control";
+    textInput.classList.add("form-control");
+    textInput.classList.add("form-control-sm");
     textInput.type = "text";
     td.appendChild(textInput);
     return td;
