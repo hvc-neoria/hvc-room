@@ -18,6 +18,8 @@ const onclick = _ => {
     tr.appendChild(createTimestampTd(currentDatetime));
     tr.appendChild(createElapsedTimeTd(currentDatetime));
 
+    tr.appendChild(createTextboxTd());
+
     moveScrollbarToBottom();
 }
 
@@ -80,6 +82,19 @@ const createElapsedTimeTd = currentDatetime => {
 
     prevUnixTime = currentUnixTime;
     return elapsedTimeTd;
+}
+
+/**
+ * テキストボックスを包括したテーブルデータを生成する
+ * @returns テキストボックスを包括したテーブルデータ
+ */
+const createTextboxTd = _ => {
+    const td = document.createElement("td");
+    const textInput = document.createElement("input");
+    textInput.className = "form-control";
+    textInput.type = "text";
+    td.appendChild(textInput);
+    return td;
 }
 
 /**
