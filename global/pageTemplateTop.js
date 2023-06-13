@@ -42,6 +42,7 @@
   }
   .container h1, .container h2, .container h3, .container h4, .container h5, .container h6 {
     font-weight: bold;
+    margin-top: 1rem;
   }
   .container h2 {
     border-bottom: 1px solid #dee2e6;
@@ -85,6 +86,9 @@
       font-size: var(--h6-lg-rate);
     }
   }
+  p {
+    margin-bottom: 0
+  }
 </style>
 
 <body class="blue-grey lighten-5">
@@ -96,6 +100,6 @@
         <script src="/hvc-room/global/g-nav.js"></script>
       </div>
 
-      <main class="col-lg-9 mt-4">
+      <main class="col-lg-9 mt-0">
 `);
 })();
